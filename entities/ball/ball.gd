@@ -2,6 +2,10 @@ extends CharacterBody2D
 class_name Ball
 
 
+signal collided(self_ref, collided_with)
+#signal collided(self: Ball, collided_with: Object)
+
+
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 const WHITE := Color("cccccc")
 const SPEED := 8.0
@@ -22,6 +26,8 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var reflection_vector := get_reflection_vector(collision)
 		direction = reflection_vector
+		var colliding_obj := collision.get_collider()
+		emit_signal("collided", self, colliding_obj)
 
 
 func get_reflection_vector(collision: KinematicCollision2D) -> Vector2:
