@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://xi64rtsc6jnm"]
+[gd_scene load_steps=7 format=3 uid="uid://xi64rtsc6jnm"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yhdcr"]
 [ext_resource type="PackedScene" uid="uid://syowwubi0s7e" path="res://entities/wall/wall.tscn" id="1_yjis4"]
 [ext_resource type="PackedScene" uid="uid://26isrcdqyi7h" path="res://entities/paddle/paddle.tscn" id="2_7h3m7"]
 [ext_resource type="Script" path="res://scenes/game/dead_zone.gd" id="5_38pcr"]
+[ext_resource type="PackedScene" uid="uid://cygf88xaya8hd" path="res://entities/spawn_point/spawn_point.tscn" id="5_wjurp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igx5n"]
 size = Vector2(1152, 20)
@@ -21,7 +22,10 @@ position = Vector2(576, 720)
 script = ExtResource("5_38pcr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
+position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_igx5n")
 
-[node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(576, 456)
+[node name="SpawnPoint" parent="." node_paths=PackedStringArray("paddle") instance=ExtResource("5_wjurp")]
+paddle = NodePath("../Paddle")
+
+[connection signal="ball_collided" from="SpawnPoint" to="." method="_on_ball_collided"]
