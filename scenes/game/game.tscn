@@ -18,12 +18,12 @@ script = ExtResource("1_yhdcr")
 position = Vector2(576, 560)
 
 [node name="DeadZone" type="StaticBody2D" parent="."]
-position = Vector2(576, 720)
+position = Vector2(576, 672)
 script = ExtResource("5_38pcr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
-position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_igx5n")
+metadata/_edit_lock_ = true
 
 [node name="BallSpawnPoint" parent="." node_paths=PackedStringArray("paddle") instance=ExtResource("5_wjurp")]
 paddle = NodePath("../Paddle")
