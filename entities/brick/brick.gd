@@ -17,8 +17,10 @@ const brick_colors := {
 
 
 func _ready() -> void:
-	color_rect.color = brick_colors[brick_color]
-	color_rect.size = Vector2(
-		collision_shape_2d.shape.size.x,
-		collision_shape_2d.shape.size.y,
+	color_rect.set_color(brick_colors[brick_color])
+	color_rect.set_size(
+		Vector2(
+			collision_shape_2d.shape.size.x,
+			collision_shape_2d.shape.size.y,
+		)
 	)
