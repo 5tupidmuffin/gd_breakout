@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://cygf88xaya8hd"]
 
-[ext_resource type="Script" path="res://entities/spawn_point/SpawnPoint.gd" id="1_8mery"]
+[ext_resource type="Script" path="res://entities/ball_spawn_point/ball_spawn_point.gd" id="1_5k0et"]
 
 [node name="SpawnPoint" type="Node2D"]
 position = Vector2(576, 456)
-script = ExtResource("1_8mery")
+script = ExtResource("1_5k0et")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://syowwubi0s7e" path="res://entities/wall/wall.tscn" id="1_yjis4"]
 [ext_resource type="PackedScene" uid="uid://26isrcdqyi7h" path="res://entities/paddle/paddle.tscn" id="2_7h3m7"]
 [ext_resource type="Script" path="res://scenes/game/dead_zone.gd" id="5_38pcr"]
-[ext_resource type="PackedScene" uid="uid://cygf88xaya8hd" path="res://entities/spawn_point/spawn_point.tscn" id="5_wjurp"]
+[ext_resource type="PackedScene" uid="uid://cygf88xaya8hd" path="res://entities/ball_spawn_point/ball_spawn_point.tscn" id="5_wjurp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igx5n"]
 size = Vector2(1152, 20)
@@ -25,7 +25,7 @@ script = ExtResource("5_38pcr")
 position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_igx5n")
 
-[node name="SpawnPoint" parent="." node_paths=PackedStringArray("paddle") instance=ExtResource("5_wjurp")]
+[node name="BallSpawnPoint" parent="." node_paths=PackedStringArray("paddle") instance=ExtResource("5_wjurp")]
 paddle = NodePath("../Paddle")
 
-[connection signal="ball_collided" from="SpawnPoint" to="." method="_on_ball_collided"]
+[connection signal="ball_collided" from="BallSpawnPoint" to="." method="_on_ball_collided"]

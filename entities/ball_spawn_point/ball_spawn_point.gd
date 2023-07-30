@@ -1,5 +1,5 @@
 extends Node2D
-class_name SpawnPoint
+class_name BallSpawnPoint
 
 signal ball_collided(ball_ref, collided_obj)
 #signal ball_collided(ball_ref: Ball, collided_obj: Object)

@@ -3,11 +3,11 @@ class_name Game
 
 
 @onready var dead_zone: StaticBody2D = $DeadZone
-@onready var spawn_point: SpawnPoint = $SpawnPoint
+@onready var ball_spawn_point: BallSpawnPoint = $BallSpawnPoint
 
 
 func _ready() -> void:
-	spawn_point.spawn_ball()
+	ball_spawn_point.spawn_ball()
 
 
 func _input(event: InputEvent) -> void:
@@ -18,4 +18,4 @@ func _input(event: InputEvent) -> void:
 func _on_ball_collided(ball_ref: Ball, collided_with: Object) -> void:
 	if collided_with is DeadZone:
 		ball_ref.queue_free()
-		spawn_point.spawn_ball()
+		ball_spawn_point.spawn_ball()
