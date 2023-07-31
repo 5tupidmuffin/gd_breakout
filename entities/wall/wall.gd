@@ -6,4 +6,4 @@ extends StaticBody2D
 
 
 func _ready() -> void:
-	polygon_2d.polygon = collision_polygon_2d.polygon
+	polygon_2d.set_polygon(collision_polygon_2d.polygon)
