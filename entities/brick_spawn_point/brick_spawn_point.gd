@@ -18,12 +18,16 @@ func spawn_bricks() -> void:
 	add_child(dummy_brick)
 	var brick_size := dummy_brick.get_size()
 	var spawn_point := Vector2.ZERO
+	var brick_color: Brick.BrickColor = 0
 	for row in row_count:
 		for column in column_count:
 			var brick: Brick = brick_scene.instantiate()
 			brick.set_global_position(spawn_point)
 			add_child(brick)
+			brick.set_color(brick_color)
 			spawn_point += Vector2(column_margin + brick_size.x, 0)
+		if (row + 1) % 2 == 0:
+			brick_color += 1
 		spawn_point.x = 0
 		spawn_point += Vector2(0, row_margin + brick_size.y)
 	dummy_brick.queue_free()
