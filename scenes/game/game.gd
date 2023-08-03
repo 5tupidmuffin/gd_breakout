@@ -16,6 +16,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_ball_collided(ball_ref: Ball, collided_with: Object) -> void:
+	if collided_with is Brick:
+		collided_with.die()
 	if collided_with is DeadZone:
 		ball_ref.die()
 		ball_spawn_point.spawn_ball()

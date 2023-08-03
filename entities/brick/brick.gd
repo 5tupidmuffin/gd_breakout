@@ -15,6 +15,13 @@ const brick_colors := {
 	BrickColor.YELLOW: Color("#c2c229"),
 }
 
+const score_map := {
+	BrickColor.RED: 7,
+	BrickColor.ORANGE: 5,
+	BrickColor.GREEN: 3,
+	BrickColor.YELLOW: 1,
+}
+
 
 func _ready() -> void:
 	set_color(brick_color)
@@ -30,3 +37,12 @@ func get_size() -> Vector2:
 
 func set_color(new_color: BrickColor) -> void:
 	color_rect.set_color(brick_colors[new_color])
+
+
+func get_score_point() -> int:
+	return score_map[brick_color]
+
+
+func die() -> void:
+	queue_free()
+
