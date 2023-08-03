@@ -41,3 +41,7 @@ func minor_deviation(reflected_vector: Vector2) -> Vector2:
 	var y := rng.randf_range(-0.2, 0.2)
 	var modified_vector := reflected_vector + Vector2(x, y)
 	return modified_vector.normalized()
+
+
+func die() -> void:
+	queue_free()
