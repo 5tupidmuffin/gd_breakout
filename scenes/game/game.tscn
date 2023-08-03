@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://xi64rtsc6jnm"]
+[gd_scene load_steps=9 format=3 uid="uid://xi64rtsc6jnm"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yhdcr"]
 [ext_resource type="PackedScene" uid="uid://syowwubi0s7e" path="res://entities/wall/wall.tscn" id="1_yjis4"]
 [ext_resource type="PackedScene" uid="uid://26isrcdqyi7h" path="res://entities/paddle/paddle.tscn" id="2_7h3m7"]
+[ext_resource type="PackedScene" uid="uid://byk4dhpkt550f" path="res://entities/score_ui/score_ui.tscn" id="2_sbdir"]
 [ext_resource type="Script" path="res://scenes/game/dead_zone.gd" id="5_38pcr"]
 [ext_resource type="PackedScene" uid="uid://cygf88xaya8hd" path="res://entities/ball_spawn_point/ball_spawn_point.tscn" id="5_wjurp"]
 [ext_resource type="PackedScene" uid="uid://b2darr2u4nkud" path="res://entities/brick_spawn_point/brick_spawn_point.tscn" id="6_356pl"]
@@ -13,7 +14,10 @@ size = Vector2(1152, 20)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yhdcr")
 
+[node name="ScoreUI" parent="." instance=ExtResource("2_sbdir")]
+
 [node name="Wall" parent="." instance=ExtResource("1_yjis4")]
+position = Vector2(0, 80)
 
 [node name="Paddle" parent="." instance=ExtResource("2_7h3m7")]
 position = Vector2(576, 560)
@@ -30,6 +34,8 @@ metadata/_edit_lock_ = true
 paddle = NodePath("../Paddle")
 
 [node name="BrickSpawnPoint" parent="." instance=ExtResource("6_356pl")]
-position = Vector2(40, 64)
+position = Vector2(40, 128)
 
+[connection signal="decrement_live" from="." to="ScoreUI" method="_on_game_decrement_live"]
+[connection signal="increment_score" from="." to="ScoreUI" method="_on_game_increment_score"]
 [connection signal="ball_collided" from="BallSpawnPoint" to="." method="_on_ball_collided"]
