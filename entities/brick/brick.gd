@@ -36,6 +36,7 @@ func get_size() -> Vector2:
 
 
 func set_color(new_color: BrickColor) -> void:
+	brick_color = new_color
 	color_rect.set_color(brick_colors[new_color])
 
 
