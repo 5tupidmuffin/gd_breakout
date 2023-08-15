@@ -31,3 +31,7 @@ func spawn_bricks() -> void:
 		spawn_point.x = 0
 		spawn_point += Vector2(0, row_margin + brick_size.y)
 	dummy_brick.queue_free()
+
+
+func get_bricks_count() -> int:
+	return get_child_count() - 1  # idk why even with zero brick it returns 1

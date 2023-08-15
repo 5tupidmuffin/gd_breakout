@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://xi64rtsc6jnm"]
+[gd_scene load_steps=10 format=3 uid="uid://xi64rtsc6jnm"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yhdcr"]
 [ext_resource type="PackedScene" uid="uid://syowwubi0s7e" path="res://entities/wall/wall.tscn" id="1_yjis4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/game/dead_zone.gd" id="5_38pcr"]
 [ext_resource type="PackedScene" uid="uid://cygf88xaya8hd" path="res://entities/ball_spawn_point/ball_spawn_point.tscn" id="5_wjurp"]
 [ext_resource type="PackedScene" uid="uid://b2darr2u4nkud" path="res://entities/brick_spawn_point/brick_spawn_point.tscn" id="6_356pl"]
+[ext_resource type="PackedScene" uid="uid://daqknokk1ap5n" path="res://entities/game_over/game_over.tscn" id="8_7uocd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igx5n"]
 size = Vector2(1152, 20)
@@ -35,6 +36,9 @@ paddle = NodePath("../Paddle")
 
 [node name="BrickSpawnPoint" parent="." instance=ExtResource("6_356pl")]
 position = Vector2(40, 128)
+
+[node name="GameOver" parent="." instance=ExtResource("8_7uocd")]
+position = Vector2(320, 280)
 
 [connection signal="decrement_live" from="." to="ScoreUI" method="_on_game_decrement_live"]
 [connection signal="increment_score" from="." to="ScoreUI" method="_on_game_increment_score"]
